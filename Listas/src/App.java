@@ -3,27 +3,15 @@ import java.nio.file.Path;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        FrutasRepositorio frutasRepositorio = new FrutasRepositorio();
-        frutasRepositorio.adicionar("Maçã");
-        frutasRepositorio.adicionar("Banana");
-        frutasRepositorio.adicionar("Laraja");
-        frutasRepositorio.listar();
-        frutasRepositorio.adicionar("Uva");
-        frutasRepositorio.listar();
+        Path arquivoDemo = Path.of("./data/alunos-demo.txt");
+        Files.deleteIfExists(arquivoDemo);
 
-        frutasRepositorio.remover("Banana");
-        frutasRepositorio.listar();
+        AlunoRepositorio repositorioMemoria = new AlunoRepositorioMemoria();
+        AlunoRepositorio repositorioArquivo = new AlunoRepositorioArquivo("./data/alunos-demo.txt");
+
+        demonstrarRepositorio("MEMORIA (ArrayList)", repositorioMemoria);
+        demonstrarRepositorio("ARQUIVO", repositorioArquivo);
     }
-
-
-
-
-
-
-
-
-
-    
 
     private static void demonstrarRepositorio(String nomeRepositorio, AlunoRepositorio repositorio) {
         System.out.println("\n==============================");
