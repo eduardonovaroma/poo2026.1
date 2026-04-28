@@ -7,7 +7,7 @@ public class FrutasRepositorio {
     private List<String> frutas;
 
     public FrutasRepositorio() {
-        this.frutas = new ArrayList<>();
+        this.frutas = new ArrayList<String>();
     }
 
     public void adicionar(String fruta) {
@@ -16,8 +16,8 @@ public class FrutasRepositorio {
 
     public void listar() {
         System.out.println("Frutas no repositório:");
-        for (String fruta : frutas) {
-            System.out.println(fruta);
+        for (int i = 0; i < frutas.size(); i++) {
+            System.out.println(i + ": " + frutas.get(i));
         }
     }
 
